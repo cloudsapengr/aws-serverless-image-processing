@@ -1,0 +1,36 @@
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadOriginalImages",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::aws-serverless-image-original-101126/*"
+    },
+    {
+      "Sid": "WriteProcessedImages",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::aws-serverless-image-processed-101126/*"
+    },
+    {
+      "Sid": "VerifyProcessedImages",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::aws-serverless-image-processed-101126/thumbnails/*"
+    },
+    {
+      "Sid": "WriteImageMetadata",
+      "Effect": "Allow",
+      "Action": "dynamodb:PutItem",
+      "Resource": "arn:aws:dynamodb:ap-northeast-1:accountid:table/ImageProcessingMetadata"
+    },
+    {
+      "Sid": "PublishCompletionNotification",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:ap-northeast-1:accountid:ImageProcessingComplete"
+    }
+  ]
+}
