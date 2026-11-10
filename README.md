@@ -59,6 +59,23 @@ The Lambda function performs the following operations:
 - Saves metadata in DynamoDB.
 - Publishes a completion notification through SNS.
 
+### IAM Role and Permissions
+
+The Lambda function uses the IAM role `ImageProcessingLambdaRole`.
+
+**AWS-managed policy:**
+- `AWSLambdaBasicExecutionRole` — allows Lambda to create and write CloudWatch Logs.
+
+**Custom inline policy:**
+- `s3:GetObject` — read original images and verify processed thumbnails.
+- `s3:PutObject` — upload resized thumbnails to the processed S3 bucket.
+- `dynamodb:PutItem` — store image processing metadata.
+- `sns:Publish` — send image processing completion notifications.
+
+The custom IAM policy is available in [`iam-policy.json`](iam-policy.json).
+
+Permissions follow the principle of least privilege by restricting access to the specific project resources.
+
 ## DynamoDB Metadata
 
 Table name: `ImageProcessingMetadata`
