@@ -139,21 +139,5 @@ After project testing and documentation:
 
 ---
 
-## Project Screenshots
-
-### 1. Original S3 Bucket
-![Original S3 Bucket](screenshots/01-original-s3.png)
-
-### 2. Lambda Execution — CloudWatch
-![Lambda Execution](screenshots/02-lambda-execution-cloudwatch.png)
-
-### 3. Processed S3 Bucket
-![Processed S3 Thumbnails](screenshots/03-processed-thumbnails.png)
-
-### 4. DynamoDB Metadata
-![DynamoDB Metadata](screenshots/04-dynamodb-metadata.png)
-
-### 5. SNS Email Notification
-![SNS Email Notification](screenshots/05-sns-email.png)
 
 
